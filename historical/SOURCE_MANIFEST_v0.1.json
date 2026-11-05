@@ -1,0 +1,122 @@
+{
+  "files": {
+    ".github/workflows/verify.yml": {
+      "sha256": "0feaae40deee45375ddafb7c04969cb1306cc8f2893d91547c0dc05f1d25af95",
+      "size": 901
+    },
+    ".gitignore": {
+      "sha256": "d9ca10661a21aaf1cf5161c42084ef9eab4e188b403d49fb41d14d30511bbf66",
+      "size": 68
+    },
+    "README.md": {
+      "sha256": "f758f89125ee09f3ac3333c3809e5cf716e6e425d65e1575973227b8edb1c771",
+      "size": 5514
+    },
+    "cloudguard/__init__.py": {
+      "sha256": "b386cb5c83dd53dd2c6746f4a63242ad4733d00beadff0131390a514abcfcc8d",
+      "size": 93
+    },
+    "cloudguard/__main__.py": {
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "size": 47
+    },
+    "cloudguard/cli.py": {
+      "sha256": "6bd4761a597c5bf3e2df43f92112fdd432c698784cd679f45a4184a61e7664b5",
+      "size": 3338
+    },
+    "cloudguard/engine.py": {
+      "sha256": "2b4011ae89506aca427b3d73f82474cd44c3baaae8c00ead5a973ccf1f1396d6",
+      "size": 13622
+    },
+    "data/findings.csv": {
+      "sha256": "cdac903e987b8c752b2f25b24955bbd40d096276d09320267fa7a52cc5b26eba",
+      "size": 4978
+    },
+    "data/remediation_plan.csv": {
+      "sha256": "98f09d76178942e4ea512072e9461dd116b5843e660694d3d63f4fc6ff2c54cc",
+      "size": 4187
+    },
+    "docs/01-scope-and-threat-model.md": {
+      "sha256": "fa1aeea0efea39ac0f04a5eac4ef4691a1a74671dea8f9d7c3c95d8cece60d9d",
+      "size": 2508
+    },
+    "docs/02-rules-and-method.md": {
+      "sha256": "2874d810b3efa2251b7f46a9327b79f863a2d7793f48ba05d1f76d547e2a65dc",
+      "size": 4174
+    },
+    "docs/03-treatment-and-verification.md": {
+      "sha256": "18c58289020863eff412f38462254c579eb461ef0b7f6d6dd1a40f8869ecb22b",
+      "size": 2810
+    },
+    "docs/04-executive-report.md": {
+      "sha256": "4971cced6e3cfce7bcf4868c50f50a2751540810e0c63d8c03c03b260e15d743",
+      "size": 2643
+    },
+    "docs/05-official-sources.md": {
+      "sha256": "676978d9fd6399ac8f9c1b6caaf8d90c32eb47fc340a5d64e7c512b562f18266",
+      "size": 2436
+    },
+    "docs/06-roadmap.md": {
+      "sha256": "4b36df8f748d610a4dfb5dd7a06d6412ec8cb3f66e7e128e7681c15bcf3629ef",
+      "size": 2130
+    },
+    "fixtures/hardened.json": {
+      "sha256": "5f77ee2ff13c7b7d02d05151dc41fc5f09f72a1083f0e3a44569ab581a80c5d5",
+      "size": 4881
+    },
+    "fixtures/vulnerable.json": {
+      "sha256": "aeb0b54ab4fe18578f119e8d902dce89a9c24173e4e5a81a9a92ec84934bf2bf",
+      "size": 3322
+    },
+    "reports/comparison.json": {
+      "sha256": "8e6e5ead14a0b5c841ff5f12e52f262faea6353f93964acd24bd71f3bfe108a9",
+      "size": 897
+    },
+    "reports/hardened.json": {
+      "sha256": "157054f13e487cb94165753d535279bbdfa46759c30cd93fcc7f2bc24d97a02b",
+      "size": 162
+    },
+    "reports/hardened.md": {
+      "sha256": "e5199ed9e51a1e87ca15b78e8995faa74b33bb66793b7e9b4edc1bb9c9359a9f",
+      "size": 526
+    },
+    "reports/vulnerable.json": {
+      "sha256": "d690e05be84d018909663a01e432ad5681e6653f9d76ebd8773b0cb0c0deda0c",
+      "size": 7717
+    },
+    "reports/vulnerable.md": {
+      "sha256": "28e0f6fa08dc9178c3ee10e0959792addf756a853e77a78a2fc6a450fb923210",
+      "size": 4542
+    },
+    "scripts_manifest.py": {
+      "sha256": "c07754a60dc1da1ef3ce3b79d99bfadc7f37bd879bf808e1c561ff9c43c47efa",
+      "size": 533
+    },
+    "scripts_validate_integrity.py": {
+      "sha256": "33ba502d759385b34dbef92d41ff2f4bd418cde2e22388edfb176ceba0f43c65",
+      "size": 3253
+    },
+    "scripts_validate_reports.py": {
+      "sha256": "eee14717d10b69f168ed69212062c90460c4b1dcd950100a2d19a560af635c2b",
+      "size": 1210
+    },
+    "tests/test_cli.py": {
+      "sha256": "24a4fa63ea46714ae7a0841c5226a70dc8043ed74f6602f14bc61e83a832687b",
+      "size": 1965
+    },
+    "tests/test_engine.py": {
+      "sha256": "4e040681429393c2677f4488d5096f6f891a039290d3063e216df30c7c670058",
+      "size": 6770
+    },
+    "tests/test_integrity.py": {
+      "sha256": "5bf0ae04385c2d909cab46da3f43a5c4f84728c3d8591b0c457049a33ca7ab9f",
+      "size": 210
+    },
+    "tests/test_reports.py": {
+      "sha256": "895b85e80ff1315c18df66b66edfda549d67ceb81ce6637327c55d63b7c2cc71",
+      "size": 218
+    }
+  },
+  "purpose": "Entirely synthetic offline cloud-security portfolio exercise",
+  "version": "0.1"
+}

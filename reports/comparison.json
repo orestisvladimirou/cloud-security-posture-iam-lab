@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "baseline_findings": 15,
+  "remediated_findings": 0,
+  "resolved": [
+    "lab-dev-222222222222/dev-build-role/IAM-005",
+    "lab-dev-222222222222/logging/MON-002",
+    "lab-prod-111111111111/external-support/IAM-003",
+    "lab-prod-111111111111/lab-app-public/NET-001",
+    "lab-prod-111111111111/lab-customer-records/S3-001",
+    "lab-prod-111111111111/lab-customer-records/S3-002",
+    "lab-prod-111111111111/lab-customer-records/S3-003",
+    "lab-prod-111111111111/lab-customer-records/S3-004",
+    "lab-prod-111111111111/lab-database/NET-002",
+    "lab-prod-111111111111/logging/MON-001",
+    "lab-prod-111111111111/logging/MON-003",
+    "lab-prod-111111111111/logging/MON-004",
+    "lab-prod-111111111111/payment-platform-admin/IAM-004",
+    "lab-prod-111111111111/root/IAM-001",
+    "lab-prod-111111111111/root/IAM-002"
+  ],
+  "persistent": [],
+  "introduced": []
+}

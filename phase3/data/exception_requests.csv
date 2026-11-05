@@ -1,0 +1,4 @@
+exception_id,finding_address,rule_id,requested_by_role,reason,decision,expires_on,fictional_approver_role,fictional_approval_evidence,verification_required
+EX-01,aws_iam_role.support_access,TF-IAM-001,Operations Lead,Temporary supplier identity integration needs a narrower trust approach,Proposed,2026-12-05,,,Reassess role trust conditions and confirm vendor identity
+EX-02,aws_security_group.web,TF-NET-001,Infrastructure Lead,Short-lived administrative access from public internet is not justified,Rejected,2026-11-20,,,Use private administration route and verify change
+EX-03,aws_iam_role_policy.reporting_permissions,TF-IAM-003,Engineering Lead,Old service wildcard was proposed for migration planning,Expired,2026-11-01,,,Revisit scope and confirm explicit least-privilege permissions

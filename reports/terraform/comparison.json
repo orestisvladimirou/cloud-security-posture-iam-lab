@@ -1,0 +1,38 @@
+{
+  "assurance": "Offline Terraform plan pattern checks only; no production changes",
+  "hardened": {
+    "counts": {
+      "Critical": 0,
+      "High": 0,
+      "Low": 0,
+      "Medium": 0
+    },
+    "findings": 0,
+    "manual_reviews": 3
+  },
+  "introduced_patterns": [],
+  "persistent_patterns": [],
+  "resolved_patterns": [
+    "aws_cloudtrail.organization_audit::TF-MON-001",
+    "aws_cloudtrail.organization_audit::TF-MON-002",
+    "aws_config_configuration_recorder.recorder::TF-MON-003",
+    "aws_iam_policy.build_permissions::TF-IAM-002",
+    "aws_iam_role.support_access::TF-IAM-001",
+    "aws_iam_role_policy.reporting_permissions::TF-IAM-003",
+    "aws_s3_bucket.records::TF-S3-001",
+    "aws_security_group.web::TF-NET-001",
+    "aws_security_group.web::TF-NET-002",
+    "module.application.aws_vpc_security_group_ingress_rule.database::TF-NET-002"
+  ],
+  "synthetic": true,
+  "vulnerable": {
+    "counts": {
+      "Critical": 1,
+      "High": 6,
+      "Low": 0,
+      "Medium": 3
+    },
+    "findings": 10,
+    "manual_reviews": 3
+  }
+}

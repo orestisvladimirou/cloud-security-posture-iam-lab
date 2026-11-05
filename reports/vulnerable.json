@@ -1,0 +1,177 @@
+{
+  "synthetic": true,
+  "scope": "pattern-detection-only",
+  "findings": [
+    {
+      "finding_id": "lab-prod-111111111111/root/IAM-001",
+      "rule_id": "IAM-001",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "root",
+      "title": "Root MFA not enabled",
+      "evidence": "root.mfa_enabled=false",
+      "recommendation": "Enable protected root MFA; confirm organization-level root access posture.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/root/IAM-002",
+      "rule_id": "IAM-002",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "root",
+      "title": "Root access key is active",
+      "evidence": "root.access_keys_active=true",
+      "recommendation": "Remove root access keys and migrate automation to roles.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/external-support/IAM-003",
+      "rule_id": "IAM-003",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "external-support",
+      "title": "Unrestricted role trust principal",
+      "evidence": "Role trust_principals includes *",
+      "recommendation": "Restrict trust to specific appropriate principals and examine conditions.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/payment-platform-admin/IAM-004",
+      "rule_id": "IAM-004",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "payment-platform-admin",
+      "title": "Broad administrative Allow statement",
+      "evidence": "Allow Action=* and Resource=* in same statement",
+      "recommendation": "Replace with task-specific least-privilege permissions; verify effective access.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/logging/MON-001",
+      "rule_id": "MON-001",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "logging",
+      "title": "No ongoing CloudTrail trail in snapshot",
+      "evidence": "cloudtrail_enabled=false",
+      "recommendation": "Enable a verified trail or equivalent organization-wide trail and check event coverage.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-app-public/NET-001",
+      "rule_id": "NET-001",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-app-public",
+      "title": "Administrative ports reachable from any IPv4/IPv6 source",
+      "evidence": "RDP:3389/::/0, SSH:22/0.0.0.0/0",
+      "recommendation": "Remove world-open administrative ingress; use private access and scoped administrative controls.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-database/NET-002",
+      "rule_id": "NET-002",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-database",
+      "title": "Data-service ports reachable from any IPv4/IPv6 source",
+      "evidence": "PostgreSQL:5432/0.0.0.0/0",
+      "recommendation": "Restrict database access to specific trusted workloads or security groups.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-customer-records/S3-002",
+      "rule_id": "S3-002",
+      "severity": "Critical",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-customer-records",
+      "title": "Bucket policy has wildcard Allow principal",
+      "evidence": "At least one Allow policy uses Principal=*",
+      "recommendation": "Review intent, constraints and effective account/organization BPA; remove unintended public grants.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-dev-222222222222/dev-build-role/IAM-005",
+      "rule_id": "IAM-005",
+      "severity": "High",
+      "account": "lab-dev-222222222222",
+      "resource": "dev-build-role",
+      "title": "Broad service wildcard permission",
+      "evidence": "Allow service:* and Resource=* in same statement",
+      "recommendation": "Narrow actions and resources after reviewing the application access needs.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-dev-222222222222/logging/MON-002",
+      "rule_id": "MON-002",
+      "severity": "High",
+      "account": "lab-dev-222222222222",
+      "resource": "logging",
+      "title": "CloudTrail trail is not multi-Region",
+      "evidence": "cloudtrail_multi_region=false",
+      "recommendation": "Enable a multi-Region trail and verify all relevant event classes.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/logging/MON-004",
+      "rule_id": "MON-004",
+      "severity": "High",
+      "account": "lab-prod-111111111111",
+      "resource": "logging",
+      "title": "AWS Config recording disabled",
+      "evidence": "config_recorder_enabled=false",
+      "recommendation": "Enable appropriate resource configuration recording and monitoring.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-customer-records/S3-001",
+      "rule_id": "S3-001",
+      "severity": "High",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-customer-records",
+      "title": "Bucket public-access safeguards not all enabled",
+      "evidence": "Disabled: BlockPublicAcls, IgnorePublicAcls, BlockPublicPolicy, RestrictPublicBuckets",
+      "recommendation": "Enable all four Block Public Access settings for private buckets; verify account-level policies.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-customer-records/S3-003",
+      "rule_id": "S3-003",
+      "severity": "High",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-customer-records",
+      "title": "Bucket lacks recorded default encryption",
+      "evidence": "encryption=none in snapshot",
+      "recommendation": "Configure appropriate SSE default; assess KMS/key policy and other exposure paths.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/logging/MON-003",
+      "rule_id": "MON-003",
+      "severity": "Medium",
+      "account": "lab-prod-111111111111",
+      "resource": "logging",
+      "title": "CloudTrail log-file validation not enabled",
+      "evidence": "cloudtrail_log_validation=false",
+      "recommendation": "Enable log-file integrity validation and verify delivery and storage protection.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    },
+    {
+      "finding_id": "lab-prod-111111111111/lab-customer-records/S3-004",
+      "rule_id": "S3-004",
+      "severity": "Medium",
+      "account": "lab-prod-111111111111",
+      "resource": "lab-customer-records",
+      "title": "Bucket versioning is disabled",
+      "evidence": "versioning=false in snapshot",
+      "recommendation": "Consider enabling versioning where data recovery requirements justify it.",
+      "confidence": "Pattern-level: verify effective access and scope"
+    }
+  ],
+  "counts": {
+    "Critical": 8,
+    "High": 5,
+    "Medium": 2,
+    "Low": 0
+  }
+}

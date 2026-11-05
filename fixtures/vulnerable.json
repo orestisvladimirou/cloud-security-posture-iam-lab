@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "scenario": "Aster Finch Commerce - fictional AWS-style configuration collected for a training exercise, not a real account",
+  "accounts": [
+    {
+      "account_id": "lab-prod-111111111111",
+      "root": {"mfa_enabled": false, "access_keys_active": true},
+      "logging": {"cloudtrail_enabled": false, "cloudtrail_multi_region": false, "cloudtrail_log_validation": false, "config_recorder_enabled": false},
+      "roles": [
+        {"name": "payment-platform-admin", "trust_principals": ["arn:aws:iam::111111111111:root"], "policies": [{"Effect": "Allow", "Action": "*", "Resource": "*"}]},
+        {"name": "external-support", "trust_principals": ["*"], "policies": [{"Effect": "Allow", "Action": ["s3:GetObject"], "Resource": "arn:aws:s3:::lab-helpdesk/*"}]},
+        {"name": "billing-readonly", "trust_principals": ["arn:aws:iam::111111111111:root"], "policies": [{"Effect": "Allow", "Action": ["s3:ListBucket"], "Resource": "arn:aws:s3:::lab-billing-reports"}]}
+      ],
+      "buckets": [
+        {"name": "lab-customer-records", "block_public_access": {"BlockPublicAcls": false, "IgnorePublicAcls": false, "BlockPublicPolicy": false, "RestrictPublicBuckets": false}, "policy": [{"Effect": "Allow", "Principal": "*", "Action": "s3:GetObject"}], "encryption": "none", "versioning": false},
+        {"name": "lab-audit-logs", "block_public_access": {"BlockPublicAcls": true, "IgnorePublicAcls": true, "BlockPublicPolicy": true, "RestrictPublicBuckets": true}, "policy": [], "encryption": "aws:kms", "versioning": true}
+      ],
+      "security_groups": [
+        {"name": "lab-app-public", "inbound": [
+          {"protocol": "tcp", "from_port": 443, "to_port": 443, "cidr": "0.0.0.0/0"},
+          {"protocol": "tcp", "from_port": 22, "to_port": 22, "cidr": "0.0.0.0/0"},
+          {"protocol": "tcp", "from_port": 3389, "to_port": 3389, "cidr": "::/0"}
+        ]},
+        {"name": "lab-database", "inbound": [
+          {"protocol": "tcp", "from_port": 5432, "to_port": 5432, "cidr": "0.0.0.0/0"},
+          {"protocol": "tcp", "from_port": 5432, "to_port": 5432, "cidr": "10.0.0.0/8"}
+        ]}
+      ]
+    },
+    {
+      "account_id": "lab-dev-222222222222",
+      "root": {"mfa_enabled": true, "access_keys_active": false},
+      "logging": {"cloudtrail_enabled": true, "cloudtrail_multi_region": false, "cloudtrail_log_validation": true, "config_recorder_enabled": true},
+      "roles": [
+        {"name": "dev-build-role", "trust_principals": ["arn:aws:iam::222222222222:root"], "policies": [{"Effect": "Allow", "Action": "s3:*", "Resource": "*"}]},
+        {"name": "dev-denied-admin", "trust_principals": ["arn:aws:iam::222222222222:root"], "policies": [{"Effect": "Deny", "Action": "*", "Resource": "*"}]}
+      ],
+      "buckets": [
+        {"name": "lab-build-artifacts", "block_public_access": {"BlockPublicAcls": true, "IgnorePublicAcls": true, "BlockPublicPolicy": true, "RestrictPublicBuckets": true}, "policy": [], "encryption": "AES256", "versioning": true}
+      ],
+      "security_groups": [
+        {"name": "lab-dev-admin", "inbound": [
+          {"protocol": "tcp", "from_port": 22, "to_port": 22, "cidr": "10.0.0.0/8"},
+          {"protocol": "tcp", "from_port": 443, "to_port": 443, "cidr": "0.0.0.0/0"}
+        ]}
+      ]
+    }
+  ]
+}
