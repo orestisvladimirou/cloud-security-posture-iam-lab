@@ -1,0 +1,449 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.0",
+  "lab_metadata": {
+    "synthetic": true,
+    "provenance": "Hand-authored Terraform JSON format example; NOT terraform show output"
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_iam_role.support_access",
+          "mode": "managed",
+          "type": "aws_iam_role",
+          "name": "support_access",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-support-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::111111111111:role/approved-support\"}}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_iam_role.conditional_partner",
+          "mode": "managed",
+          "type": "aws_iam_role",
+          "name": "conditional_partner",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-conditional-partner",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Condition\":{\"StringEquals\":{\"sts:ExternalId\":\"lab-approved-external-id\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"}}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_iam_policy.build_permissions",
+          "mode": "managed",
+          "type": "aws_iam_policy",
+          "name": "build_permissions",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-build-permissions",
+            "policy": "{\"Statement\":[{\"Action\":[\"s3:PutObject\",\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::lab-build-artifacts/*\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_iam_role_policy.reporting_permissions",
+          "mode": "managed",
+          "type": "aws_iam_role_policy",
+          "name": "reporting_permissions",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-reporting",
+            "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::lab-reporting/*\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_iam_policy.explicit_deny_context",
+          "mode": "managed",
+          "type": "aws_iam_policy",
+          "name": "explicit_deny_context",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-no-access",
+            "policy": "{\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":\"*\",\"Effect\":\"Deny\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_s3_bucket.records",
+          "mode": "managed",
+          "type": "aws_s3_bucket",
+          "name": "records",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "bucket": "lab-sensitive-records"
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_s3_bucket_public_access_block.records",
+          "mode": "managed",
+          "type": "aws_s3_bucket_public_access_block",
+          "name": "records",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "bucket": "lab-sensitive-records",
+            "block_public_acls": true,
+            "ignore_public_acls": true,
+            "block_public_policy": true,
+            "restrict_public_buckets": true
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_security_group.web",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "name": "web",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-web",
+            "ingress": [
+              {
+                "protocol": "tcp",
+                "from_port": 443,
+                "to_port": 443,
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "ipv6_cidr_blocks": []
+              },
+              {
+                "protocol": "tcp",
+                "from_port": 22,
+                "to_port": 22,
+                "cidr_blocks": [
+                  "10.0.0.0/8"
+                ],
+                "ipv6_cidr_blocks": []
+              },
+              {
+                "protocol": "tcp",
+                "from_port": 5432,
+                "to_port": 5432,
+                "cidr_blocks": [
+                  "10.0.0.0/8"
+                ],
+                "ipv6_cidr_blocks": []
+              }
+            ]
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_cloudtrail.organization_audit",
+          "mode": "managed",
+          "type": "aws_cloudtrail",
+          "name": "organization_audit",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-organization-trail",
+            "is_multi_region_trail": true,
+            "enable_log_file_validation": true
+          },
+          "sensitive_values": {}
+        },
+        {
+          "address": "aws_config_configuration_recorder.recorder",
+          "mode": "managed",
+          "type": "aws_config_configuration_recorder",
+          "name": "recorder",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "lab-recorder",
+            "recording_group": [
+              {
+                "all_supported": true
+              }
+            ]
+          },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "address": "module.application",
+          "resources": [
+            {
+              "address": "module.application.aws_vpc_security_group_ingress_rule.database",
+              "mode": "managed",
+              "type": "aws_vpc_security_group_ingress_rule",
+              "name": "database",
+              "provider_name": "registry.terraform.io/hashicorp/aws",
+              "values": {
+                "ip_protocol": "tcp",
+                "from_port": 5432,
+                "to_port": 5432,
+                "cidr_ipv4": "10.11.0.0/16",
+                "cidr_ipv6": null
+              },
+              "sensitive_values": {}
+            },
+            {
+              "address": "module.application.aws_iam_role.future_partner",
+              "mode": "managed",
+              "type": "aws_iam_role",
+              "name": "future_partner",
+              "provider_name": "registry.terraform.io/hashicorp/aws",
+              "values": {
+                "name": "lab-future-partner",
+                "assume_role_policy": null
+              },
+              "sensitive_values": {}
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_iam_role.support_access",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "support_access",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-support-role",
+          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::111111111111:role/approved-support\"}}],\"Version\":\"2012-10-17\"}"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_iam_role.conditional_partner",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "conditional_partner",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-conditional-partner",
+          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Condition\":{\"StringEquals\":{\"sts:ExternalId\":\"lab-approved-external-id\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"}}],\"Version\":\"2012-10-17\"}"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_iam_policy.build_permissions",
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "build_permissions",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-build-permissions",
+          "policy": "{\"Statement\":[{\"Action\":[\"s3:PutObject\",\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::lab-build-artifacts/*\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_iam_role_policy.reporting_permissions",
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "reporting_permissions",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-reporting",
+          "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::lab-reporting/*\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_iam_policy.explicit_deny_context",
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "explicit_deny_context",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-no-access",
+          "policy": "{\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":\"*\",\"Effect\":\"Deny\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_s3_bucket.records",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "records",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "bucket": "lab-sensitive-records"
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_s3_bucket_public_access_block.records",
+      "mode": "managed",
+      "type": "aws_s3_bucket_public_access_block",
+      "name": "records",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "bucket": "lab-sensitive-records",
+          "block_public_acls": true,
+          "ignore_public_acls": true,
+          "block_public_policy": true,
+          "restrict_public_buckets": true
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_security_group.web",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "web",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-web",
+          "ingress": [
+            {
+              "protocol": "tcp",
+              "from_port": 443,
+              "to_port": 443,
+              "cidr_blocks": [
+                "0.0.0.0/0"
+              ],
+              "ipv6_cidr_blocks": []
+            },
+            {
+              "protocol": "tcp",
+              "from_port": 22,
+              "to_port": 22,
+              "cidr_blocks": [
+                "10.0.0.0/8"
+              ],
+              "ipv6_cidr_blocks": []
+            },
+            {
+              "protocol": "tcp",
+              "from_port": 5432,
+              "to_port": 5432,
+              "cidr_blocks": [
+                "10.0.0.0/8"
+              ],
+              "ipv6_cidr_blocks": []
+            }
+          ]
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_cloudtrail.organization_audit",
+      "mode": "managed",
+      "type": "aws_cloudtrail",
+      "name": "organization_audit",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-organization-trail",
+          "is_multi_region_trail": true,
+          "enable_log_file_validation": true
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "aws_config_configuration_recorder.recorder",
+      "mode": "managed",
+      "type": "aws_config_configuration_recorder",
+      "name": "recorder",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-recorder",
+          "recording_group": [
+            {
+              "all_supported": true
+            }
+          ]
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.application.aws_vpc_security_group_ingress_rule.database",
+      "mode": "managed",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "name": "database",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "ip_protocol": "tcp",
+          "from_port": 5432,
+          "to_port": 5432,
+          "cidr_ipv4": "10.11.0.0/16",
+          "cidr_ipv6": null
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.application.aws_iam_role.future_partner",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "future_partner",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": null,
+        "after": {
+          "name": "lab-future-partner",
+          "assume_role_policy": null
+        },
+        "after_unknown": {
+          "assume_role_policy": true
+        }
+      }
+    }
+  ]
+}
