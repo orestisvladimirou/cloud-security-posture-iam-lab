@@ -1,0 +1,34 @@
+name: Verify offline synthetic cloud-security portfolio
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit and command-line tests (no credentials)
+        run: python -m unittest discover -s tests -v
+      - name: Baseline v0.1 reporting
+        run: python scripts_validate_reports.py
+      - name: Terraform engineering data consistency
+        run: python scripts_validate_cloud_portfolio.py
+      - name: Source integrity and local links
+        run: python scripts_validate_integrity.py
+      - name: Hardened AWS-style fixture under defined patterns
+        run: python -m cloudguard scan fixtures/hardened.json --format json --fail-on High
+      - name: Hardened Terraform-shaped fixture under defined patterns
+        run: python -m cloudguard plan terraform/hardened.plan.json --format json --fail-on High
+      - name: Export SARIF for offline code review
+        run: python -m cloudguard plan terraform/vulnerable.plan.json --format sarif --output /tmp/cloudguard-vulnerable.sarif
+      - name: Upload reproducible synthetic SARIF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-terraform-plan-sarif
+          path: /tmp/cloudguard-vulnerable.sarif
+          if-no-files-found: error

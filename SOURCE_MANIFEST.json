@@ -1,0 +1,222 @@
+{
+  "files": {
+    ".github/workflows/verify.yml": {
+      "sha256": "f32063a18bbd54c38ba46fa70902a25dbfe178a99f57fb28e800db1571d9ad7a",
+      "size": 1435
+    },
+    ".gitignore": {
+      "sha256": "d9ca10661a21aaf1cf5161c42084ef9eab4e188b403d49fb41d14d30511bbf66",
+      "size": 68
+    },
+    "README.md": {
+      "sha256": "758dafafac698668daeee8aa030bfd586c400e0be69991e769cec08711a3f780",
+      "size": 7771
+    },
+    "cloudguard/__init__.py": {
+      "sha256": "b386cb5c83dd53dd2c6746f4a63242ad4733d00beadff0131390a514abcfcc8d",
+      "size": 93
+    },
+    "cloudguard/__main__.py": {
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "size": 47
+    },
+    "cloudguard/cli.py": {
+      "sha256": "771c393963ecbc3a129ef0083aa7e933913c4717ef9b918ac678288d83ebdd93",
+      "size": 5934
+    },
+    "cloudguard/engine.py": {
+      "sha256": "2b4011ae89506aca427b3d73f82474cd44c3baaae8c00ead5a973ccf1f1396d6",
+      "size": 13622
+    },
+    "cloudguard/exceptions.py": {
+      "sha256": "e33c41eae2254e7474260c31b50d6daec0a8e740738af7b41cbcd888add76d51",
+      "size": 1591
+    },
+    "cloudguard/sarif.py": {
+      "sha256": "cbc751ba06c9eaefcb1c2e1d8d7cb5ec580f5e768fe38362b3e49a4331654b3e",
+      "size": 2306
+    },
+    "cloudguard/terraform_plan.py": {
+      "sha256": "5f51fb1e0ab0f30161468acf27c73c76e4bd2e1bf2e937baff0393d9b2b68f8f",
+      "size": 15509
+    },
+    "data/findings.csv": {
+      "sha256": "cdac903e987b8c752b2f25b24955bbd40d096276d09320267fa7a52cc5b26eba",
+      "size": 4978
+    },
+    "data/remediation_plan.csv": {
+      "sha256": "98f09d76178942e4ea512072e9461dd116b5843e660694d3d63f4fc6ff2c54cc",
+      "size": 4187
+    },
+    "docs/01-scope-and-threat-model.md": {
+      "sha256": "fa1aeea0efea39ac0f04a5eac4ef4691a1a74671dea8f9d7c3c95d8cece60d9d",
+      "size": 2508
+    },
+    "docs/02-rules-and-method.md": {
+      "sha256": "2874d810b3efa2251b7f46a9327b79f863a2d7793f48ba05d1f76d547e2a65dc",
+      "size": 4174
+    },
+    "docs/03-treatment-and-verification.md": {
+      "sha256": "18c58289020863eff412f38462254c579eb461ef0b7f6d6dd1a40f8869ecb22b",
+      "size": 2810
+    },
+    "docs/04-executive-report.md": {
+      "sha256": "4971cced6e3cfce7bcf4868c50f50a2751540810e0c63d8c03c03b260e15d743",
+      "size": 2643
+    },
+    "docs/05-official-sources.md": {
+      "sha256": "676978d9fd6399ac8f9c1b6caaf8d90c32eb47fc340a5d64e7c512b562f18266",
+      "size": 2436
+    },
+    "docs/06-roadmap.md": {
+      "sha256": "006271d10e246881a5b80c360f9c38abf442cadefc39238233f0ef49e3004cbd",
+      "size": 2247
+    },
+    "fixtures/hardened.json": {
+      "sha256": "5f77ee2ff13c7b7d02d05151dc41fc5f09f72a1083f0e3a44569ab581a80c5d5",
+      "size": 4881
+    },
+    "fixtures/vulnerable.json": {
+      "sha256": "aeb0b54ab4fe18578f119e8d902dce89a9c24173e4e5a81a9a92ec84934bf2bf",
+      "size": 3322
+    },
+    "historical/SOURCE_MANIFEST_v0.1.json": {
+      "sha256": "31dfb897d2d6fad165109042c93ea90f178f88d17b1a0d691f086522ea6a3841",
+      "size": 4233
+    },
+    "phase2/README.md": {
+      "sha256": "c71c2795e91bb0b1b2144f2b46ee51a223ecbc573f01a71be91eb76e576602c8",
+      "size": 4011
+    },
+    "phase2/data/terraform_findings.csv": {
+      "sha256": "9d90fab988eb6504c8c6be23d06e47fd1ac7c2904dd95eaaaa95805dc83e1952",
+      "size": 2692
+    },
+    "phase3/README.md": {
+      "sha256": "a313a5f57213f3c01d95d0ea3819280fd10780a087bd873fe6a23f87877024c0",
+      "size": 2310
+    },
+    "phase3/data/exception_requests.csv": {
+      "sha256": "c3c58376fa80c1622270cd4f6cefbd059bc5e4440f36faa01b6110c4116fa44b",
+      "size": 792
+    },
+    "phase3/data/verification_matrix.csv": {
+      "sha256": "f30e16a55b472d53a6fb77ce58338870fa0f28c45f5d40777cc15f877ca03035",
+      "size": 3185
+    },
+    "phase4/README.md": {
+      "sha256": "0410caf4a75c508b62766238d7fa39d757d0db282aacea47d53be236fde052d4",
+      "size": 802
+    },
+    "phase4/dashboard.md": {
+      "sha256": "8c4e7f8580107c47022194636aa7dc7806216310db04d1e45d7491ade3829b18",
+      "size": 4372
+    },
+    "phase4/quality-review.md": {
+      "sha256": "351e2be11998f5bb2ead9cf7677cf36cd7841d2f0eef13ade7c4d545487b86f8",
+      "size": 4041
+    },
+    "reports/comparison.json": {
+      "sha256": "8e6e5ead14a0b5c841ff5f12e52f262faea6353f93964acd24bd71f3bfe108a9",
+      "size": 897
+    },
+    "reports/hardened.json": {
+      "sha256": "157054f13e487cb94165753d535279bbdfa46759c30cd93fcc7f2bc24d97a02b",
+      "size": 162
+    },
+    "reports/hardened.md": {
+      "sha256": "e5199ed9e51a1e87ca15b78e8995faa74b33bb66793b7e9b4edc1bb9c9359a9f",
+      "size": 526
+    },
+    "reports/terraform/comparison.json": {
+      "sha256": "ca6b1213b3b7c22d62d444e5ad16a70e4e003f67de146646f3f416ebd90d4ac6",
+      "size": 1051
+    },
+    "reports/terraform/hardened.md": {
+      "sha256": "35a1f8eccaf476db04fab1c9a23c24e25bacfd0b78f69dd2890f930affc51771",
+      "size": 1003
+    },
+    "reports/terraform/hardened.sarif": {
+      "sha256": "69c6fc2b87ca60ec91c846a93c464992b93fe4ccb8bb1176995abf8a0a249b3a",
+      "size": 612
+    },
+    "reports/terraform/vulnerable.md": {
+      "sha256": "dcfc51563ba358eaac054a843734fade4ae774f0d3478cd81e74bb32d0c9c69c",
+      "size": 2092
+    },
+    "reports/terraform/vulnerable.sarif": {
+      "sha256": "8cfa94734243a8540194bab3bb1c16c188333b2cef9d67a97afb6618b8f9429a",
+      "size": 14691
+    },
+    "reports/vulnerable.json": {
+      "sha256": "d690e05be84d018909663a01e432ad5681e6653f9d76ebd8773b0cb0c0deda0c",
+      "size": 7717
+    },
+    "reports/vulnerable.md": {
+      "sha256": "28e0f6fa08dc9178c3ee10e0959792addf756a853e77a78a2fc6a450fb923210",
+      "size": 4542
+    },
+    "scripts_build_terraform_fixtures.py": {
+      "sha256": "bb09dcea810abb8e8282f338f7813099709587ee78971428dd45053671a4dee2",
+      "size": 5134
+    },
+    "scripts_generate_portfolio.py": {
+      "sha256": "32a21dc5b6f90e69071a9501a55d6092fef0936fea8a40f2d0e0758c5908820c",
+      "size": 3112
+    },
+    "scripts_manifest.py": {
+      "sha256": "b69327d3e044350ac8127834ad98a20c7149cd74fa7944099e9cdd640bbbb528",
+      "size": 533
+    },
+    "scripts_validate_cloud_portfolio.py": {
+      "sha256": "9d3fa67f58a3b2ae3d0f21e511a199193ba10c67d575e6aad86a3519718c8d44",
+      "size": 3674
+    },
+    "scripts_validate_integrity.py": {
+      "sha256": "1d56cb1427f791ef9495111391ddfa77966901be36c9550aae730ec943324c79",
+      "size": 3253
+    },
+    "scripts_validate_reports.py": {
+      "sha256": "eee14717d10b69f168ed69212062c90460c4b1dcd950100a2d19a560af635c2b",
+      "size": 1210
+    },
+    "terraform/hardened.plan.json": {
+      "sha256": "9aa321de9a466f5923c2a99745911feb0af2ae112572f070bd2689165f7a2527",
+      "size": 13874
+    },
+    "terraform/vulnerable.plan.json": {
+      "sha256": "2de72be497fc47a83c6f05074f8d3c447d2b588b67b6aa930f0b38a3ccf5a62a",
+      "size": 13586
+    },
+    "tests/test_cli.py": {
+      "sha256": "24a4fa63ea46714ae7a0841c5226a70dc8043ed74f6602f14bc61e83a832687b",
+      "size": 1965
+    },
+    "tests/test_cloud_exceptions.py": {
+      "sha256": "aa61bb5882d4eac1c5dec0a15eb2fb7a6e0aa8daac8b18d3578d3b6f758e358d",
+      "size": 1424
+    },
+    "tests/test_cloud_portfolio.py": {
+      "sha256": "bbeb954aeeb021e5ef29dd7f75ac9e156df479540fc034df8c7f3c7eb359e21f",
+      "size": 1002
+    },
+    "tests/test_engine.py": {
+      "sha256": "4e040681429393c2677f4488d5096f6f891a039290d3063e216df30c7c670058",
+      "size": 6770
+    },
+    "tests/test_integrity.py": {
+      "sha256": "5bf0ae04385c2d909cab46da3f43a5c4f84728c3d8591b0c457049a33ca7ab9f",
+      "size": 210
+    },
+    "tests/test_reports.py": {
+      "sha256": "895b85e80ff1315c18df66b66edfda549d67ceb81ce6637327c55d63b7c2cc71",
+      "size": 218
+    },
+    "tests/test_terraform_plan.py": {
+      "sha256": "b1c31b3e3a3d1e187eeccf0e7015dcf1b2bc663b932902b6aa27cca2aa66f2e0",
+      "size": 6962
+    }
+  },
+  "purpose": "Entirely synthetic offline cloud-security portfolio exercise",
+  "version": "0.4"
+}
